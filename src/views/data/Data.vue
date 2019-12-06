@@ -1,10 +1,16 @@
 <template>
-    <div>data</div>
+    <div>
+        <DataManage></DataManage>
+    </div>
 </template>
 
 <script>
+    import DataManage from "../../components/data/DataManage";
     export default {
-        name: "Data"
+        name: "Data",
+        components:{
+            DataManage,
+        }
     }
 </script>
 

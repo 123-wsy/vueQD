@@ -16,14 +16,14 @@
                 </el-dropdown>
             </el-header>
             <el-container>
-                <el-aside width="200px">
-                    <el-menu router>
-                        <el-submenu :key="index" :index="index+''" v-for="(item,index) in this.$router.options.routes" v-if="!item.hidden==true && item.meta.isFirst == false">
+                <el-aside width="200px" style="height:calc(100vh - 60px);background:#000">
+                    <el-menu router style="background:#000">
+                        <el-submenu :key="index" :index="index+''" v-for="(item,index) in this.$router.options.routes" v-if="!item.hidden==true && item.meta.isFirst == false && isRole(item.meta.roles)">
                             <template slot="title">
                                 <i :class="item.meta.icon"></i>
                                 <span>{{item.meta.a}}</span>
                             </template>
-                            <el-menu-item :index="child.path" v-for="(child,index) in item.children">
+                            <el-menu-item style="background:#000" :index="child.path" v-for="(child,index) in item.children" v-if="isRole(child.meta.roles)">
                                 {{child.meta.a}}
                             </el-menu-item>
                         </el-submenu>

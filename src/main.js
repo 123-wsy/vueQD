@@ -6,6 +6,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import {Message} from "element-ui";
 import {allUrl} from "./utils/menus";
 import {operatUrl} from "./utils/menus";
+import echarts from 'echarts';
 
 Vue.use(ElementUI);
 
@@ -19,6 +20,8 @@ Vue.prototype.postRequest = postRequest
 Vue.prototype.postKeyValueRequest = postKeyValueRequest
 Vue.prototype.putRequest = putRequest
 Vue.prototype.delRequest = delRequest
+
+Vue.prototype.$echarts = echarts
 //路由守卫
 router.beforeEach((to, from, next) => {
     if (to.path == "/") {
