@@ -1,10 +1,16 @@
 <template>
-    <div>artpublish</div>
+    <div>
+        <PublishManage></PublishManage>
+    </div>
 </template>
 
 <script>
+    import PublishManage from "../../components/art/PublishManage";
     export default {
-        name: "artPublish"
+        name: "artPublish",
+        components:{
+            PublishManage,
+        }
     }
 </script>
 

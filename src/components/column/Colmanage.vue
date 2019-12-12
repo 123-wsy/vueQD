@@ -100,7 +100,7 @@
             },
             //表格监听事件
             handleSelectionChange(val) {
-                console.log(val);
+                // console.log(val);
                 if(val.length > 0){
                     this.disabled = false;
                     this.ids = '';

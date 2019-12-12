@@ -32,7 +32,8 @@
                         xAxis: {
                             data: text,
                             axisLabel :{
-                                interval:0
+                                interval:0,
+                                rotate:40
                             }
                         },
                         yAxis: {},

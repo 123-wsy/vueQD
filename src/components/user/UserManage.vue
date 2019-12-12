@@ -51,11 +51,13 @@
             }
         },
         methods: {
+            //查
             selectUser(){
                 this.getRequest('/user/getUsers?nickname='+this.nickname).then(resp => {
                     this.info = resp;
                 })
             },
+            //删
             delBtn(id) {
                 this.$confirm('此操作将永久删除该用户, 是否继续?', '提示', {
                     confirmButtonText: '确定',
@@ -72,6 +74,7 @@
                     });
                 });
             },
+            //加载
             load() {
                 this.getRequest('/user/getUsers').then(resp => {
                     this.info = resp;

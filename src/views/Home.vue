@@ -16,23 +16,26 @@
                 </el-dropdown>
             </el-header>
             <el-container>
-                <el-aside width="200px" style="height:calc(100vh - 60px);background:#000">
-                    <el-menu router style="background:#000">
+                <el-aside width="200px" style="height:calc(100vh - 60px);background:aliceblue">
+                    <el-menu router style="background:aliceblue">
+
                         <el-submenu :key="index" :index="index+''" v-for="(item,index) in this.$router.options.routes" v-if="!item.hidden==true && item.meta.isFirst == false && isRole(item.meta.roles)">
                             <template slot="title">
                                 <i :class="item.meta.icon"></i>
                                 <span>{{item.meta.a}}</span>
                             </template>
-                            <el-menu-item style="background:#000" :index="child.path" v-for="(child,index) in item.children" v-if="isRole(child.meta.roles)">
+                            <el-menu-item style="background:aliceblue" :index="child.path" v-for="(child,index) in item.children" v-if="isRole(child.meta.roles) && !child.hidden">
                                 {{child.meta.a}}
                             </el-menu-item>
                         </el-submenu>
+
                         <div v-for="(item,index) in this.$router.options.routes" v-if="!item.hidden==true && item.meta.isFirst == true">
                             <el-menu-item :key="index" :index="child.path" v-for="(child,index) in item.children" v-if="isRole(child.meta.roles)">
                                 <i v-if="child.meta.icon" :class="child.meta.icon"></i>
                                 <span slot="title">{{child.meta.a}}</span>
                             </el-menu-item>
                         </div>
+
                     </el-menu>
                 </el-aside>
                 <el-main>
@@ -41,7 +44,7 @@
                         <el-breadcrumb-item v-if="this.$route.path != '/home'">{{this.$router.currentRoute.meta.a}}</el-breadcrumb-item>
                     </el-breadcrumb>
                     <div class="maintitle" v-if="this.$route.path == '/home'">
-                        <h2>欧哈有</h2>
+                        <h2>这是首页</h2>
                     </div>
                     <router-view style="margin-top: 10px"/>
                 </el-main>

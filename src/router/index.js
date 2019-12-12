@@ -7,6 +7,7 @@ import ArtPublish from "../views/art/ArtPublish";
 import Column from "../views/column/Column";
 import Data from "../views/data/Data";
 import User from "../views/user/User";
+import Detail from "../views/art/Detail";
 
 Vue.use(VueRouter)
 
@@ -50,6 +51,26 @@ const routes = [
         component: ArtPublish,
         meta:{
           a:'发布文章',
+          roles:['ROLE_admin','ROLE_user','ROLE_dba']
+        }
+      },
+      {
+        path: '/Detail',
+        name: 'detail',
+        component: Detail,
+        hidden:true,
+        meta:{
+          a:'文章详情',
+          roles:['ROLE_admin','ROLE_user','ROLE_dba']
+        }
+      },
+      {
+        path: '/EditArt',
+        name: 'editArt',
+        component: ArtPublish,
+        hidden:true,
+        meta:{
+          a:'编辑文章',
           roles:['ROLE_admin','ROLE_user','ROLE_dba']
         }
       }
